@@ -1,0 +1,12 @@
+{
+  "target_mode": "p995",
+  "hp": {
+    "depth": 6,
+    "learning_rate": 0.05,
+    "l2_leaf_reg": 3.0,
+    "iterations": 800,
+    "od_wait": 80
+  },
+  "val_mae": 522.5340003100217,
+  "test_mae": 429.26048271897633
+}

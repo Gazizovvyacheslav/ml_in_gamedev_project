@@ -1,0 +1,6 @@
+{
+  "target": "future_sessions_mean_playtime_7d",
+  "method": "raw",
+  "raw_val_mae": 233.27058293154303,
+  "best_val_mae": 233.27058293154303
+}

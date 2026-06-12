@@ -1,0 +1,15 @@
+{
+  "config": {
+    "iterations": 1200,
+    "depth": 7,
+    "learning_rate": 0.03,
+    "l2_leaf_reg": 5.0,
+    "min_data_in_leaf": 50,
+    "random_strength": 1.0,
+    "bootstrap": "Bernoulli",
+    "target_mode": "log1p_p995",
+    "clip_mode": "none"
+  },
+  "val_mae": 521.7974483604116,
+  "test_mae": 428.4232019749596
+}

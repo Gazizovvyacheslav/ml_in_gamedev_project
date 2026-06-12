@@ -1,0 +1,20 @@
+{
+  "target": "target_next_session_length_sec",
+  "hp": {
+    "depth": 7,
+    "learning_rate": 0.03,
+    "l2_leaf_reg": 5.0,
+    "iterations": 1200,
+    "min_data_in_leaf": 50,
+    "random_strength": 1.0,
+    "od_wait": 80
+  },
+  "loss": "Quantile:alpha=0.40",
+  "target_mode": "raw",
+  "extra": {
+    "bootstrap_type": "Bernoulli",
+    "subsample": 0.85
+  },
+  "use_history": true,
+  "n_train": 2406968
+}
