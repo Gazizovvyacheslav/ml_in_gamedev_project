@@ -1,0 +1,15 @@
+{
+  "target": "future_sessions_mean_playtime_7d",
+  "hp": {
+    "depth": 6,
+    "learning_rate": 0.05,
+    "l2_leaf_reg": 3.0,
+    "iterations": 800,
+    "od_wait": 80
+  },
+  "target_mode": "p995",
+  "extra": {},
+  "calibration": "raw",
+  "drift_filter": "all_features",
+  "use_history": false
+}

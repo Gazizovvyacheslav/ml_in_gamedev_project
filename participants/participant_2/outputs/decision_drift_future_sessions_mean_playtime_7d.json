@@ -1,0 +1,7 @@
+{
+  "target": "future_sessions_mean_playtime_7d",
+  "drop_features": [],
+  "chosen_variant": "all_features",
+  "all_val_mae": 238.8822780671785,
+  "chosen_val_mae": 238.8822780671785
+}

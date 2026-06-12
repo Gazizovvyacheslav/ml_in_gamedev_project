@@ -1,0 +1,8 @@
+{
+  "target": "future_sessions_mean_playtime_7d",
+  "use_history": false,
+  "best_hist_features": [],
+  "baseline_val_mae": 238.65978795232448,
+  "history_val_mae": 238.8822780671785,
+  "best_history_val_mae": 241.14599218212646
+}
