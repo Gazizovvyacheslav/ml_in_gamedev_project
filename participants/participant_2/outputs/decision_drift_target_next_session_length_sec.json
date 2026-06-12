@@ -1,0 +1,7 @@
+{
+  "target": "target_next_session_length_sec",
+  "drop_features": [],
+  "chosen_variant": "all_features",
+  "all_val_mae": 522.1622442933331,
+  "chosen_val_mae": 522.1622442933331
+}

@@ -1,0 +1,13 @@
+{
+  "target_next_session_length_sec": {
+    "n_train": 2406968,
+    "n_features": 87,
+    "use_history": true,
+    "calibration": "raw",
+    "target_mode": "log1p_p995",
+    "test_mae": 531.468,
+    "test_r2": 0.026,
+    "model_size_kb": 10422,
+    "fit_sec": 1384.6
+  }
+}

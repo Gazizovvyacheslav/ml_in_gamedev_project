@@ -1,0 +1,23 @@
+{
+  "target": "target_next_session_length_sec",
+  "use_history": true,
+  "best_hist_features": [
+    "hist_prev_dur",
+    "hist_mean_last3",
+    "hist_mean_last5",
+    "hist_median_last3",
+    "hist_median_last5",
+    "hist_max_last5",
+    "hist_ewma5",
+    "hist_trend_recent",
+    "hist_time_since_prev_sec",
+    "hist_session_number",
+    "hist_sessions_last_1d",
+    "hist_sessions_last_3d",
+    "hist_sessions_last_7d",
+    "hist_playtime_last_7d"
+  ],
+  "baseline_val_mae": 522.5340003100217,
+  "history_val_mae": 522.1622442933331,
+  "best_history_val_mae": 523.0137828737153
+}
