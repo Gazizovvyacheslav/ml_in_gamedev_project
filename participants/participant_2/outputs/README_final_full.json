@@ -9,5 +9,16 @@
     "test_r2": 0.026,
     "model_size_kb": 10422,
     "fit_sec": 1384.6
+  },
+  "future_sessions_mean_playtime_7d": {
+    "n_train": 2357551,
+    "n_features": 73,
+    "use_history": false,
+    "calibration": "raw",
+    "target_mode": "p995",
+    "test_mae": 287.749,
+    "test_r2": 0.263,
+    "model_size_kb": 9458,
+    "fit_sec": 509.0
   }
 }

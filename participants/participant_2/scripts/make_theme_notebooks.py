@@ -919,6 +919,51 @@ def nb7():
             "print(json.dumps(json.loads((C.OUTPUT_DIR / 'README_final.json').read_text()),\n"
             "                 ensure_ascii=False, indent=2)[:1500])"
         ),
+        md(
+            "## 7.2 Финальная модель на полном датасете (3.44M)\n\n"
+            "Те же собранные решения, но обучение на **всех данных** (тайм-сплит 70/15/15, "
+            "train ≈ 2.4M) — скрипт `scripts/final_full.py` (тяжёлый, запускается отдельно; "
+            "модели сохранены в `outputs/final_models_full/`). Здесь сравниваем готовые сводки "
+            "30k vs full из `README_final*.json`."
+        ),
+        code(
+            "import json\n"
+            "r30 = json.loads((C.OUTPUT_DIR / 'README_final.json').read_text())\n"
+            "rfull = json.loads((C.OUTPUT_DIR / 'README_final_full.json').read_text())\n"
+            "rows = []\n"
+            "for target in (C.NEXT_TARGET, C.CRM_TARGET):\n"
+            "    a, b = r30.get(target, {}), rfull.get(target, {})\n"
+            "    rows.append(dict(target=target.replace('_sec', ''), data='30k',\n"
+            "                     n_train=a.get('n_features') and '~21k', test_mae=a.get('final_test_mae'),\n"
+            "                     test_r2=None, size_kb=a.get('model_size_kb')))\n"
+            "    rows.append(dict(target=target.replace('_sec', ''), data='full (2.4M)',\n"
+            "                     n_train=b.get('n_train'), test_mae=b.get('test_mae'),\n"
+            "                     test_r2=b.get('test_r2'), size_kb=b.get('model_size_kb')))\n"
+            "cmp = pd.DataFrame(rows)\n"
+            "display(cmp)\n"
+            "print(json.dumps(rfull, ensure_ascii=False, indent=2))"
+        ),
+        code(
+            "labels = ['next', 'CRM']\n"
+            "r2_full = [rfull[C.NEXT_TARGET]['test_r2'], rfull[C.CRM_TARGET]['test_r2']]\n"
+            "mae_full = [rfull[C.NEXT_TARGET]['test_mae'], rfull[C.CRM_TARGET]['test_mae']]\n"
+            "fig, (a1, a2) = plt.subplots(1, 2, figsize=(8, 3.2))\n"
+            "a1.bar(labels, r2_full, color=[BLUE, GREEN]); a1.set_title('full test R\\u00b2'); a1.set_ylabel('R\\u00b2')\n"
+            "for i, v in enumerate(r2_full):\n"
+            "    a1.text(i, v, f'{v:.3f}', ha='center', va='bottom')\n"
+            "a2.bar(labels, mae_full, color=[BLUE, GREEN]); a2.set_title('full test MAE'); a2.set_ylabel('сек')\n"
+            "for i, v in enumerate(mae_full):\n"
+            "    a2.text(i, v, f'{v:.0f}', ha='center', va='bottom')\n"
+            "fig.suptitle('Финальная модель на полном датасете (3.44M)'); plt.tight_layout(); plt.show()"
+        ),
+        md(
+            "**Вывод (full).** Честное межразмерное сравнение — по **R²** (MAE напрямую не "
+            "сравним: на 30k test = последние 4.5k «лёгких» строк, на full test = 516k строк "
+            "широкого периода). На полном датасете R² растёт у CRM (≈0.20 → **0.263**) — больше "
+            "данных реально помогает недельному таргету; у next-session R² остаётся низким "
+            "(≈0.01 → 0.026) — таргет принципиально шумный. Production-артефакты обеих full-моделей "
+            "(`.cbm` ~10 МБ) — в `outputs/final_models_full/` (в git не выгружаются из-за размера)."
+        ),
     ]
     write_nb("7_final_model.ipynb", cells)
 
